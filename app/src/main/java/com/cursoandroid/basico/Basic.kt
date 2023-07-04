@@ -5,11 +5,16 @@ var usuario="Todos"
 //Constante
 const val ESPECIE ="Humano"
 
+const val SEPARADORTITULO="=============="
+const val SEPARADORSUBTITULO="--------------"
+
 fun main(){
     print("Hola mundo")
     println() //salto de linea en el texto
 
     //variable locales
+    nuevoTitulo(titulo = "VARIABLES LOCALES")
+
     var edad: Int = 30 //var permite cambiar el valor o reasignar valor
 
     val nombre = "Rojas" //val no permite reasignacion de valor
@@ -19,7 +24,7 @@ fun main(){
     println(nombre)
 
     var job:String //variable vacia de tipo cadena
-    job = "Varible de cadena"
+    job = "Oficial de policia"
     println(job)
 
     val lengua: String
@@ -37,6 +42,7 @@ fun main(){
     println("Mi edad es ${edad}")
 
     //tipos de datos
+    nuevoTitulo(titulo = "TIPO DE DATOS")
     //Char es para un solo caracter y va entre comillas simples
     val char: Char ='a'
     val char2: Char ='g'
@@ -76,6 +82,7 @@ fun main(){
     val ancho: Double = 1.75333333
     println("${ancho}m es la anchura")
 
+    nuevoTitulo(titulo = "FUNCIONES Y ARGUMENTOS")
     //LLAMAMOS A FUNCIONES
     Basic()
     arguments(nombre)
@@ -83,6 +90,23 @@ fun main(){
 
     //RETURN
     println(returnData())
+
+    //SOBRECARGA
+    overload(edad)
+    overload(job)
+    overload(job, lengua)
+
+}
+fun overload(job: String, lengua: String){
+    println("Mi trabajo es: $job con $lengua")
+}
+
+fun overload(job: String) {
+    println("Mi trabajo es: $job")
+}
+
+fun overload(edad: Int) {
+    println("Mi edad es: $edad")
 }
 
 fun returnData(): String {
@@ -100,3 +124,14 @@ fun arguments(nombre: String): Unit {
 fun Basic(){
     println("hola")
 }
+fun nuevoTitulo(titulo: String){
+    println()
+    print("$SEPARADORTITULO $titulo $SEPARADORTITULO")
+    println()
+}
+fun nuevoSubtitulo(titulo: String){
+    println()
+    println("$SEPARADORSUBTITULO $titulo $SEPARADORSUBTITULO")
+
+}
+
